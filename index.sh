@@ -1,10 +1,10 @@
 # Bash library
 #
 # Work only like additional library for bash scripts
-# Use: lib=./src/lib.sh ; source "$lib"
+# Use: lib=./shlib/lib.sh ; source "$lib"
 #
 # Author: ZhukMax, <zhukmax@ya.ru>
-# https://github.com/ZhukMax
+# https://github.com/ZhukMax/shlib
 # Apache License v.2
 #
 
