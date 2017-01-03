@@ -1,0 +1,2 @@
+# shlib
+Bash library
