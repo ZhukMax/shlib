@@ -31,3 +31,41 @@ BGGREEN='\033[42m' ; BGBROWN='\033[43m'
 BGBLUE='\033[44m' ; BGMAGENTA='\033[45m'
 BGCYAN='\033[46m' ; BGGRAY='\033[47m'
 BGDEF='\033[49m'
+
+# Go to home directory
+function homeDir() {
+	cd ~
+}
+
+# Output help information
+# and exit from script
+function echoHelp() {
+	cat $1
+	exit 1
+}
+
+# Restart web server
+function restartPhp() {
+   service php7.0-fpm restart
+   echo "php7.0-fpm restart"
+   service nginx restart
+   echo "nginx restart"
+}
+
+function tests() {
+	if [ "$1" = "--install" ] ; then
+		while [ 1 ] ; do
+			if [ "$1" = "--install" ] ; then
+				echo -en "${INVERSE}Test installation of applications:${NORMAL}\n"
+			elif hash "$1" 2>/dev/null; then
+				echo -en "${GREEN}OK${NORMAL}: $1\n"
+			elif [ -z "$1" ] ; then
+				break
+			else
+				echo -en "${LRED}Error${NORMAL}: $1 don't install\n"
+			fi
+			shift
+		done
+		tput sgr0
+	fi
+}
